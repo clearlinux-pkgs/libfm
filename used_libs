@@ -11,6 +11,7 @@ libglib-2.0.so.0
 libgobject-2.0.so.0
 libgthread-2.0.so.0
 libgtk-x11-2.0.so.0
+libharfbuzz.so.0
 libm.so.6
 libmenu-cache.so.3
 libpango-1.0.so.0

@@ -4,10 +4,10 @@
 #
 Name     : libfm
 Version  : 1.3.1
-Release  : 2
+Release  : 3
 URL      : https://github.com/lxde/libfm/archive/1.3.1.tar.gz
 Source0  : https://github.com/lxde/libfm/archive/1.3.1.tar.gz
-Summary  : Library for file management
+Summary  : A glib/gio-based lib used to develop file managers providing some file management utilities.
 Group    : Development/Tools
 License  : GPL-2.0
 Requires: libfm-bin = %{version}-%{release}
@@ -46,7 +46,6 @@ Summary: bin components for the libfm package.
 Group: Binaries
 Requires: libfm-data = %{version}-%{release}
 Requires: libfm-license = %{version}-%{release}
-Requires: libfm-man = %{version}-%{release}
 
 %description bin
 bin components for the libfm package.
@@ -67,6 +66,7 @@ Requires: libfm-lib = %{version}-%{release}
 Requires: libfm-bin = %{version}-%{release}
 Requires: libfm-data = %{version}-%{release}
 Provides: libfm-devel = %{version}-%{release}
+Requires: libfm = %{version}-%{release}
 
 %description dev
 dev components for the libfm package.
@@ -108,28 +108,34 @@ man components for the libfm package.
 
 %prep
 %setup -q -n libfm-1.3.1
+cd %{_builddir}/libfm-1.3.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1549295811
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1579645756
+export GCC_IGNORE_WERROR=1
+export CFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$CFLAGS -fno-lto "
+export FFLAGS="$CFLAGS -fno-lto "
+export CXXFLAGS="$CXXFLAGS -fno-lto "
 %autogen --disable-static
 make  %{?_smp_mflags}
 
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1549295811
+export SOURCE_DATE_EPOCH=1579645756
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libfm
-cp COPYING %{buildroot}/usr/share/package-licenses/libfm/COPYING
+cp %{_builddir}/libfm-1.3.1/COPYING %{buildroot}/usr/share/package-licenses/libfm/db95910cb27890d60e596e4c622fc3eeba6693fa
 %make_install
 %find_lang libfm
 
@@ -256,7 +262,7 @@ cp COPYING %{buildroot}/usr/share/package-licenses/libfm/COPYING
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/libfm/COPYING
+/usr/share/package-licenses/libfm/db95910cb27890d60e596e4c622fc3eeba6693fa
 
 %files man
 %defattr(0644,root,root,0755)
