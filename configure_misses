@@ -1,2 +1,6 @@
+Configure miss: gcc options needed to detect all undeclared functions
+Configure miss: gcc options needed to detect all undeclared functions
 Configure miss: libexif
+Configure miss: libexif
+Configure miss: whether environ is declared
 Configure miss: whether environ is declared

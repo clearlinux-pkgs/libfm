@@ -1,7 +1,6 @@
 libatk-1.0.so.0
 libc.so.6
 libcairo.so.2
-libdl.so.2
 libfontconfig.so.1
 libfreetype.so.6
 libgdk-x11-2.0.so.0
@@ -17,4 +16,3 @@ libmenu-cache.so.3
 libpango-1.0.so.0
 libpangocairo-1.0.so.0
 libpangoft2-1.0.so.0
-libpthread.so.0
