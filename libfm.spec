@@ -4,7 +4,7 @@
 #
 Name     : libfm
 Version  : 1.3.2
-Release  : 6
+Release  : 7
 URL      : https://github.com/lxde/libfm/archive/1.3.2/libfm-1.3.2.tar.gz
 Source0  : https://github.com/lxde/libfm/archive/1.3.2/libfm-1.3.2.tar.gz
 Summary  : A glib/gio-based lib used to develop file managers providing some file management utilities.
@@ -129,7 +129,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1644263330
+export SOURCE_DATE_EPOCH=1656129961
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$FFLAGS -fno-lto "
@@ -157,7 +157,7 @@ cd ../buildavx2;
 make %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1644263330
+export SOURCE_DATE_EPOCH=1656129961
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libfm
 cp %{_builddir}/libfm-1.3.2/COPYING %{buildroot}/usr/share/package-licenses/libfm/db95910cb27890d60e596e4c622fc3eeba6693fa
@@ -166,7 +166,7 @@ pushd ../buildavx2/
 popd
 %make_install
 %find_lang libfm
-/usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot}/usr/share/clear/optimized-elf/ %{buildroot}/usr/share/clear/filemap/filemap-%{name}
+/usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot} %{buildroot}/usr/share/clear/filemap/filemap-%{name}
 
 %files
 %defattr(-,root,root,-)
@@ -281,6 +281,15 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
+/usr/lib64/glibc-hwcaps/x86-64-v3/libfm-extra.so
+/usr/lib64/glibc-hwcaps/x86-64-v3/libfm-extra.so.4
+/usr/lib64/glibc-hwcaps/x86-64-v3/libfm-extra.so.4.1.3
+/usr/lib64/glibc-hwcaps/x86-64-v3/libfm-gtk.so
+/usr/lib64/glibc-hwcaps/x86-64-v3/libfm-gtk.so.4
+/usr/lib64/glibc-hwcaps/x86-64-v3/libfm-gtk.so.4.1.3
+/usr/lib64/glibc-hwcaps/x86-64-v3/libfm.so
+/usr/lib64/glibc-hwcaps/x86-64-v3/libfm.so.4
+/usr/lib64/glibc-hwcaps/x86-64-v3/libfm.so.4.1.3
 /usr/lib64/libfm-extra.so.4
 /usr/lib64/libfm-extra.so.4.1.3
 /usr/lib64/libfm-gtk.so.4
@@ -293,7 +302,6 @@ popd
 /usr/lib64/libfm/modules/gtk-menu-trash.so
 /usr/lib64/libfm/modules/vfs-menu.so
 /usr/lib64/libfm/modules/vfs-search.so
-/usr/share/clear/optimized-elf/lib*
 
 %files license
 %defattr(0644,root,root,0755)
