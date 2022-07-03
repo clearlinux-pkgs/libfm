@@ -4,7 +4,7 @@
 #
 Name     : libfm
 Version  : 1.3.2
-Release  : 7
+Release  : 8
 URL      : https://github.com/lxde/libfm/archive/1.3.2/libfm-1.3.2.tar.gz
 Source0  : https://github.com/lxde/libfm/archive/1.3.2/libfm-1.3.2.tar.gz
 Summary  : A glib/gio-based lib used to develop file managers providing some file management utilities.
@@ -268,6 +268,9 @@ popd
 /usr/include/libfm-1.0/fm-version.h
 /usr/include/libfm-1.0/fm-xml-file.h
 /usr/include/libfm-1.0/fm.h
+/usr/lib64/glibc-hwcaps/x86-64-v3/libfm-extra.so
+/usr/lib64/glibc-hwcaps/x86-64-v3/libfm-gtk.so
+/usr/lib64/glibc-hwcaps/x86-64-v3/libfm.so
 /usr/lib64/libfm-extra.so
 /usr/lib64/libfm-gtk.so
 /usr/lib64/libfm.so
@@ -281,13 +284,10 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
-/usr/lib64/glibc-hwcaps/x86-64-v3/libfm-extra.so
 /usr/lib64/glibc-hwcaps/x86-64-v3/libfm-extra.so.4
 /usr/lib64/glibc-hwcaps/x86-64-v3/libfm-extra.so.4.1.3
-/usr/lib64/glibc-hwcaps/x86-64-v3/libfm-gtk.so
 /usr/lib64/glibc-hwcaps/x86-64-v3/libfm-gtk.so.4
 /usr/lib64/glibc-hwcaps/x86-64-v3/libfm-gtk.so.4.1.3
-/usr/lib64/glibc-hwcaps/x86-64-v3/libfm.so
 /usr/lib64/glibc-hwcaps/x86-64-v3/libfm.so.4
 /usr/lib64/glibc-hwcaps/x86-64-v3/libfm.so.4.1.3
 /usr/lib64/libfm-extra.so.4
@@ -302,6 +302,7 @@ popd
 /usr/lib64/libfm/modules/gtk-menu-trash.so
 /usr/lib64/libfm/modules/vfs-menu.so
 /usr/lib64/libfm/modules/vfs-search.so
+/usr/share/clear/optimized-elf/other*
 
 %files license
 %defattr(0644,root,root,0755)
