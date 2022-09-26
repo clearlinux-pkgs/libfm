@@ -4,7 +4,7 @@
 #
 Name     : libfm
 Version  : 1.3.2
-Release  : 11
+Release  : 12
 URL      : https://github.com/lxde/libfm/archive/1.3.2/libfm-1.3.2.tar.gz
 Source0  : https://github.com/lxde/libfm/archive/1.3.2/libfm-1.3.2.tar.gz
 Summary  : A glib/gio-based lib used to develop file managers providing some file management utilities.
